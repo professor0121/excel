@@ -10,7 +10,7 @@ describe('Health & Status Endpoints', () => {
     expect(res.status).toBe(200);
     expect(res.body.name).toBe('Gemini DataLab API');
     expect(res.body.status).toBe('online');
-    expect(res.body.phase).toBe('Phase 1 - Project Foundation');
+    expect(res.body.phase).toBe('Phase 2 - Excel Integration Engine');
   });
 
   it('GET /api/v1/health/live should return liveness 200', async () => {

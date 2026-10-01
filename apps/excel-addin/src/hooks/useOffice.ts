@@ -1,57 +1,87 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback, useMemo } from 'react';
+import { createExcelAdapter, type IExcelAdapter } from '@gemini-datalab/excel-engine';
+import type { ExcelWorkbookInfo, ExcelRangeData } from '@gemini-datalab/shared-types';
 
 export interface OfficeState {
   isOfficeReady: boolean;
   isExcelHost: boolean;
   activeSheetName: string;
-  selectedRangeAddress: string;
+  sheets: string[];
+  selectedRange: ExcelRangeData | null;
   errorMessage: string | null;
+  adapter: IExcelAdapter;
+  refreshContext: () => Promise<void>;
 }
 
 export function useOffice(): OfficeState {
-  const [state, setState] = useState<OfficeState>({
-    isOfficeReady: false,
-    isExcelHost: false,
-    activeSheetName: 'Sheet1',
-    selectedRangeAddress: 'A1:A1',
-    errorMessage: null
-  });
+  const [isOfficeReady, setIsOfficeReady] = useState(false);
+  const [isExcelHost, setIsExcelHost] = useState(false);
+  const [activeSheetName, setActiveSheetName] = useState('Sheet1');
+  const [sheets, setSheets] = useState<string[]>(['Sheet1']);
+  const [selectedRange, setSelectedRange] = useState<ExcelRangeData | null>(null);
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
+
+  const adapter = useMemo(() => createExcelAdapter(), []);
+
+  const refreshContext = useCallback(async () => {
+    try {
+      setErrorMessage(null);
+      const wbInfo: ExcelWorkbookInfo = await adapter.getWorkbookInfo();
+      setActiveSheetName(wbInfo.activeSheetName);
+      setSheets(wbInfo.sheets);
+
+      const sel = await adapter.getSelectedRange();
+      setSelectedRange(sel);
+    } catch (err: unknown) {
+      const msg = err instanceof Error ? err.message : String(err);
+      setErrorMessage(msg);
+    }
+  }, [adapter]);
 
   useEffect(() => {
-    // Check if Office global is loaded
     if (typeof Office !== 'undefined') {
       Office.onReady((info) => {
         const isExcel = info.host === Office.HostType.Excel;
-        setState((prev) => ({
-          ...prev,
-          isOfficeReady: true,
-          isExcelHost: isExcel
-        }));
+        setIsOfficeReady(true);
+        setIsExcelHost(isExcel);
 
+        refreshContext();
+
+        // Register selection change listener if running inside Excel
         if (isExcel && typeof Excel !== 'undefined') {
-          // Detect active sheet name
-          Excel.run(async (context) => {
-            const sheet = context.workbook.worksheets.getActiveWorksheet();
-            sheet.load('name');
-            await context.sync();
-            setState((prev) => ({
-              ...prev,
-              activeSheetName: sheet.name
-            }));
-          }).catch((err) => {
-            console.warn('Error reading Excel active worksheet:', err);
-          });
+          try {
+            Excel.run(async (context) => {
+              const worksheet = context.workbook.worksheets.getActiveWorksheet();
+              if (worksheet && worksheet.onSelectionChanged) {
+                worksheet.onSelectionChanged.add(() => {
+                  refreshContext().catch(() => {});
+                  return Promise.resolve();
+                });
+                await context.sync();
+              }
+            }).catch((err) => {
+              console.debug('Selection listener registration note:', err);
+            });
+          } catch (e) {
+            console.debug('Excel.run registration error:', e);
+          }
         }
       });
     } else {
-      // In browser development preview without Office.js loaded
-      setState((prev) => ({
-        ...prev,
-        isOfficeReady: true,
-        isExcelHost: false
-      }));
+      setIsOfficeReady(true);
+      setIsExcelHost(false);
+      refreshContext();
     }
-  }, []);
+  }, [adapter, refreshContext]);
 
-  return state;
+  return {
+    isOfficeReady,
+    isExcelHost,
+    activeSheetName,
+    sheets,
+    selectedRange,
+    errorMessage,
+    adapter,
+    refreshContext
+  };
 }

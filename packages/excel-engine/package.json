@@ -1,0 +1,33 @@
+{
+  "name": "@gemini-datalab/excel-engine",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Native Excel integration adapter and safety engine for Gemini DataLab",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "build": "tsc",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "clean": "rimraf dist"
+  },
+  "dependencies": {
+    "@gemini-datalab/shared-types": "workspace:*",
+    "@gemini-datalab/validation": "workspace:*"
+  },
+  "devDependencies": {
+    "@types/office-js": "^1.0.428",
+    "rimraf": "^6.0.1",
+    "typescript": "^5.7.3",
+    "vitest": "^3.0.5"
+  }
+}

@@ -23,6 +23,9 @@ importers:
 
   apps/api:
     dependencies:
+      '@gemini-datalab/excel-engine':
+        specifier: workspace:*
+        version: link:../../packages/excel-engine
       '@gemini-datalab/shared-types':
         specifier: workspace:*
         version: link:../../packages/shared-types
@@ -93,6 +96,9 @@ importers:
 
   apps/excel-addin:
     dependencies:
+      '@gemini-datalab/excel-engine':
+        specifier: workspace:*
+        version: link:../../packages/excel-engine
       '@gemini-datalab/shared-types':
         specifier: workspace:*
         version: link:../../packages/shared-types
@@ -158,6 +164,28 @@ importers:
       vite:
         specifier: ^6.1.0
         version: 6.4.3(@types/node@22.20.4)(tsx@4.23.15)
+
+  packages/excel-engine:
+    dependencies:
+      '@gemini-datalab/shared-types':
+        specifier: workspace:*
+        version: link:../shared-types
+      '@gemini-datalab/validation':
+        specifier: workspace:*
+        version: link:../validation
+    devDependencies:
+      '@types/office-js':
+        specifier: ^1.0.428
+        version: 1.0.610
+      rimraf:
+        specifier: ^6.0.1
+        version: 6.1.3
+      typescript:
+        specifier: ^5.7.3
+        version: 5.9.3
+      vitest:
+        specifier: ^3.0.5
+        version: 3.2.7(@types/node@22.20.4)(tsx@4.23.15)
 
   packages/shared-types:
     devDependencies:
