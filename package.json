@@ -1,0 +1,26 @@
+{
+  "name": "gemini-datalab-monorepo",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Gemini DataLab for Excel - AI-Powered Data Science & Analytics Platform",
+  "packageManager": "pnpm@10.30.3",
+  "scripts": {
+    "dev": "pnpm --parallel --filter \"./apps/*\" dev",
+    "dev:api": "pnpm --filter @gemini-datalab/api dev",
+    "dev:web": "pnpm --filter @gemini-datalab/web dev",
+    "dev:excel": "pnpm --filter @gemini-datalab/excel-addin dev",
+    "build": "pnpm --filter \"./packages/*\" build && pnpm --filter \"./apps/*\" build",
+    "test": "pnpm -r test",
+    "typecheck": "pnpm -r typecheck",
+    "lint": "pnpm -r lint",
+    "format": "prettier --write \"**/*.{ts,tsx,js,json,md}\"",
+    "infra:up": "docker compose up -d",
+    "infra:down": "docker compose down"
+  },
+  "devDependencies": {
+    "@types/node": "^22.13.1",
+    "prettier": "^3.5.0",
+    "typescript": "^5.7.3",
+    "vitest": "^3.0.5"
+  }
+}
