@@ -1,4 +1,4 @@
-﻿# MASTER DEVELOPMENT PROMPT
+# MASTER DEVELOPMENT PROMPT
 
 # GEMINI DATALAB FOR EXCEL
 
@@ -179,64 +179,64 @@ Build a modular monorepo.
 Suggested architecture:
 
 gemini-datalab/
-â”‚
-â”œâ”€â”€ apps/
-â”‚   â”œâ”€â”€ web/
-â”‚   â”‚   â”œâ”€â”€ src/
-â”‚   â”‚   â””â”€â”€ package.json
-â”‚   â”‚
-â”‚   â”œâ”€â”€ excel-addin/
-â”‚   â”‚   â”œâ”€â”€ src/
-â”‚   â”‚   â”œâ”€â”€ manifest.xml
-â”‚   â”‚   â””â”€â”€ package.json
-â”‚   â”‚
-â”‚   â””â”€â”€ api/
-â”‚       â”œâ”€â”€ src/
-â”‚       â”‚   â”œâ”€â”€ config/
-â”‚       â”‚   â”œâ”€â”€ modules/
-â”‚       â”‚   â”œâ”€â”€ middlewares/
-â”‚       â”‚   â”œâ”€â”€ routes/
-â”‚       â”‚   â”œâ”€â”€ workers/
-â”‚       â”‚   â”œâ”€â”€ queues/
-â”‚       â”‚   â”œâ”€â”€ utils/
-â”‚       â”‚   â””â”€â”€ server.ts
-â”‚       â””â”€â”€ package.json
-â”‚
-â”œâ”€â”€ packages/
-â”‚   â”œâ”€â”€ shared-types/
-â”‚   â”œâ”€â”€ validation/
-â”‚   â”œâ”€â”€ data-engine/
-â”‚   â”œâ”€â”€ ingestion-engine/
-â”‚   â”œâ”€â”€ cleaning-engine/
-â”‚   â”œâ”€â”€ transformation-engine/
-â”‚   â”œâ”€â”€ statistics-engine/
-â”‚   â”œâ”€â”€ visualization-engine/
-â”‚   â”œâ”€â”€ machine-learning-engine/
-â”‚   â”œâ”€â”€ time-series-engine/
-â”‚   â”œâ”€â”€ anomaly-engine/
-â”‚   â”œâ”€â”€ ai-engine/
-â”‚   â”œâ”€â”€ excel-engine/
-â”‚   â”œâ”€â”€ pipeline-engine/
-â”‚   â””â”€â”€ report-engine/
-â”‚
-â”œâ”€â”€ infrastructure/
-â”‚   â”œâ”€â”€ docker/
-â”‚   â”œâ”€â”€ mongodb/
-â”‚   â””â”€â”€ redis/
-â”‚
-â”œâ”€â”€ docs/
-â”‚   â”œâ”€â”€ architecture/
-â”‚   â”œâ”€â”€ api/
-â”‚   â”œâ”€â”€ modules/
-â”‚   â””â”€â”€ decisions/
-â”‚
-â”œâ”€â”€ scripts/
-â”œâ”€â”€ tests/
-â”œâ”€â”€ docker-compose.yml
-â”œâ”€â”€ .env.example
-â”œâ”€â”€ package.json
-â”œâ”€â”€ pnpm-workspace.yaml
-â””â”€â”€ README.md
+│
+├── apps/
+│   ├── web/
+│   │   ├── src/
+│   │   └── package.json
+│   │
+│   ├── excel-addin/
+│   │   ├── src/
+│   │   ├── manifest.xml
+│   │   └── package.json
+│   │
+│   └── api/
+│       ├── src/
+│       │   ├── config/
+│       │   ├── modules/
+│       │   ├── middlewares/
+│       │   ├── routes/
+│       │   ├── workers/
+│       │   ├── queues/
+│       │   ├── utils/
+│       │   └── server.ts
+│       └── package.json
+│
+├── packages/
+│   ├── shared-types/
+│   ├── validation/
+│   ├── data-engine/
+│   ├── ingestion-engine/
+│   ├── cleaning-engine/
+│   ├── transformation-engine/
+│   ├── statistics-engine/
+│   ├── visualization-engine/
+│   ├── machine-learning-engine/
+│   ├── time-series-engine/
+│   ├── anomaly-engine/
+│   ├── ai-engine/
+│   ├── excel-engine/
+│   ├── pipeline-engine/
+│   └── report-engine/
+│
+├── infrastructure/
+│   ├── docker/
+│   ├── mongodb/
+│   └── redis/
+│
+├── docs/
+│   ├── architecture/
+│   ├── api/
+│   ├── modules/
+│   └── decisions/
+│
+├── scripts/
+├── tests/
+├── docker-compose.yml
+├── .env.example
+├── package.json
+├── pnpm-workspace.yaml
+└── README.md
 
 You may adjust the structure when justified, but preserve modular boundaries.
 
@@ -263,7 +263,7 @@ Each phase is a separate development milestone.
 
 Do not skip phases without explaining the dependency and obtaining approval.
 
-## PHASE 1 â€” Project Foundation
+## PHASE 1 — Project Foundation
 
 Build the foundation.
 
@@ -297,7 +297,7 @@ Deliverables:
 * Docker development environment.
 * Project documentation.
 
-## PHASE 2 â€” Excel Integration Engine
+## PHASE 2 — Excel Integration Engine
 
 Develop native Excel integration.
 
@@ -336,7 +336,7 @@ Safety:
 
 Create an Excel adapter interface so the core data engine does not depend directly on Office.js.
 
-## PHASE 3 â€” Data Ingestion Studio
+## PHASE 3 — Data Ingestion Studio
 
 Support multiple data sources.
 
@@ -379,7 +379,7 @@ Features:
 
 Provide clear error messages for unsupported or malformed files.
 
-## PHASE 4 â€” Dataset Explorer and Data Profiling
+## PHASE 4 — Dataset Explorer and Data Profiling
 
 Build a complete dataset inspection workspace.
 
@@ -411,7 +411,7 @@ Support pagination, filtering and sorting.
 
 Do not load an unlimited dataset into browser memory.
 
-## PHASE 5 â€” Data Cleaning Studio
+## PHASE 5 — Data Cleaning Studio
 
 Build a complete data quality and cleaning workspace.
 
@@ -482,7 +482,7 @@ Features:
 
 Never automatically delete or overwrite data without explicit approval.
 
-## PHASE 6 â€” Data Transformation Studio
+## PHASE 6 — Data Transformation Studio
 
 Implement data transformation operations.
 
@@ -519,7 +519,7 @@ Show the transformation history.
 
 Allow users to preview and approve transformations.
 
-## PHASE 7 â€” Exploratory Data Analysis (EDA)
+## PHASE 7 — Exploratory Data Analysis (EDA)
 
 Create a complete EDA engine.
 
@@ -572,7 +572,7 @@ Generate an EDA report with:
 
 All observations must be grounded in computed results.
 
-## PHASE 8 â€” Statistical Analysis Studio
+## PHASE 8 — Statistical Analysis Studio
 
 Build a scientifically responsible statistics module.
 
@@ -617,7 +617,7 @@ Build a scientifically responsible statistics module.
 
 Clearly distinguish sample statistics from population parameters.
 
-## PHASE 9 â€” Hypothesis Testing Studio
+## PHASE 9 — Hypothesis Testing Studio
 
 Implement validated statistical tests.
 
@@ -658,7 +658,7 @@ Important:
 * Do not invent test results when a method is unsupported.
 * Account for multiple comparisons when relevant.
 
-## PHASE 10 â€” Data Visualization Studio
+## PHASE 10 — Data Visualization Studio
 
 Build an interactive visualization platform using Apache ECharts.
 
@@ -714,7 +714,7 @@ Features:
 
 Charts must reflect actual dataset values.
 
-## PHASE 11 â€” Business Intelligence Dashboard
+## PHASE 11 — Business Intelligence Dashboard
 
 Create an interactive dashboard builder.
 
@@ -746,7 +746,7 @@ Support business dashboard templates such as:
 * Student performance.
 * Operations monitoring.
 
-## PHASE 12 â€” Machine Learning Studio
+## PHASE 12 — Machine Learning Studio
 
 Build a complete classical machine learning workflow.
 
@@ -838,7 +838,7 @@ All preprocessing that learns parameters from data must be fitted on training da
 
 Use reproducible random seeds where supported.
 
-## PHASE 13 â€” Deep Learning Studio
+## PHASE 13 — Deep Learning Studio
 
 Use TensorFlow.js for supported neural network workloads.
 
@@ -874,7 +874,7 @@ Clearly state hardware and model-size limitations.
 
 Do not claim parity with specialized large-scale deep learning frameworks.
 
-## PHASE 14 â€” Time Series Analysis Studio
+## PHASE 14 — Time Series Analysis Studio
 
 Features:
 
@@ -912,7 +912,7 @@ Evaluation:
 
 Never use random splitting for time-ordered forecasting tasks.
 
-## PHASE 15 â€” Anomaly Detection Studio
+## PHASE 15 — Anomaly Detection Studio
 
 Features:
 
@@ -935,7 +935,7 @@ Provide:
 
 Distinguish unusual observations from confirmed errors or fraud.
 
-## PHASE 16 â€” Feature Engineering Studio
+## PHASE 16 — Feature Engineering Studio
 
 Features:
 
@@ -956,7 +956,7 @@ Features:
 
 Track feature transformations and their parameters.
 
-## PHASE 17 â€” AI DATA SCIENTIST
+## PHASE 17 — AI DATA SCIENTIST
 
 Build the central Gemini-powered assistant.
 
@@ -1007,7 +1007,7 @@ Support:
 
 The AI must distinguish correlation from causation and must communicate uncertainty.
 
-## PHASE 18 â€” NATURAL LANGUAGE TO DATA SCIENCE PIPELINE
+## PHASE 18 — NATURAL LANGUAGE TO DATA SCIENCE PIPELINE
 
 Create an AI pipeline planner.
 
@@ -1042,7 +1042,7 @@ Features:
 
 Never automatically run destructive operations without approval.
 
-## PHASE 19 â€” AI FORMULA ASSISTANT
+## PHASE 19 — AI FORMULA ASSISTANT
 
 Build a dedicated Excel formula assistant.
 
@@ -1082,7 +1082,7 @@ Detect workbook locale and formula compatibility.
 
 Never assume that every Excel function is supported by every Excel version.
 
-## PHASE 20 â€” EXCEL AUTOMATION ENGINE
+## PHASE 20 — EXCEL AUTOMATION ENGINE
 
 Support safe workbook automation.
 
@@ -1122,7 +1122,7 @@ All actions must pass:
 
 Provide a preview of all workbook modifications.
 
-## PHASE 21 â€” REPORT GENERATOR
+## PHASE 21 — REPORT GENERATOR
 
 Create an AI-powered report generator.
 
@@ -1154,7 +1154,7 @@ Features:
 
 Every numerical result must come from the computation engine.
 
-## PHASE 22 â€” PROJECT AND DATASET MANAGEMENT
+## PHASE 22 — PROJECT AND DATASET MANAGEMENT
 
 Features:
 
@@ -1175,7 +1175,7 @@ Features:
 
 Track data provenance and operation history.
 
-## PHASE 23 â€” AUTHENTICATION AND AUTHORIZATION
+## PHASE 23 — AUTHENTICATION AND AUTHORIZATION
 
 Features:
 
@@ -1203,7 +1203,7 @@ Security:
 * Security headers.
 * Audit logging.
 
-## PHASE 24 â€” SAAS SUBSCRIPTION AND USAGE MANAGEMENT
+## PHASE 24 — SAAS SUBSCRIPTION AND USAGE MANAGEMENT
 
 Design an extensible subscription system.
 
@@ -1232,7 +1232,7 @@ Do not hardcode pricing. Keep plan limits configurable.
 
 Do not implement payment collection until the core product is functional.
 
-## PHASE 25 â€” ADMIN DASHBOARD
+## PHASE 25 — ADMIN DASHBOARD
 
 Features:
 
@@ -1251,7 +1251,7 @@ Features:
 
 Protect administrative functionality with strict authorization.
 
-## PHASE 26 â€” BACKGROUND JOBS AND PERFORMANCE
+## PHASE 26 — BACKGROUND JOBS AND PERFORMANCE
 
 Use BullMQ and Redis.
 
@@ -1283,7 +1283,7 @@ Use streaming and DuckDB for large datasets.
 
 Set configurable resource and execution limits.
 
-## PHASE 27 â€” TESTING AND QUALITY ASSURANCE
+## PHASE 27 — TESTING AND QUALITY ASSURANCE
 
 Implement:
 
@@ -1340,7 +1340,7 @@ Document unsupported methods and numerical tolerances.
 
 Do not mark a feature complete merely because the UI renders.
 
-## PHASE 28 â€” SECURITY AND DATA PRIVACY
+## PHASE 28 — SECURITY AND DATA PRIVACY
 
 Implement:
 
@@ -1371,7 +1371,7 @@ Provide local-only processing options for supported workflows.
 
 Never log passwords, access tokens, private keys or raw sensitive datasets.
 
-## PHASE 29 â€” DOCUMENTATION
+## PHASE 29 — DOCUMENTATION
 
 Maintain:
 
@@ -1539,7 +1539,7 @@ Never allow Gemini to bypass these boundaries.
 
 ---
 
-# 9. DEVELOPMENT RULES â€” EXTREMELY IMPORTANT
+# 9. DEVELOPMENT RULES — EXTREMELY IMPORTANT
 
 You must follow a feature-by-feature development process.
 
@@ -1547,7 +1547,7 @@ Do not attempt to implement all features in one response.
 
 For every feature, follow this exact workflow:
 
-STEP 1 â€” REQUIREMENT ANALYSIS
+STEP 1 — REQUIREMENT ANALYSIS
 
 Explain:
 
@@ -1558,7 +1558,7 @@ Explain:
 * Technical requirements.
 * Potential limitations.
 
-STEP 2 â€” ARCHITECTURE
+STEP 2 — ARCHITECTURE
 
 Explain:
 
@@ -1569,11 +1569,11 @@ Explain:
 * Required libraries.
 * Security considerations.
 
-STEP 3 â€” FOLDER STRUCTURE
+STEP 3 — FOLDER STRUCTURE
 
 Show all new and modified files.
 
-STEP 4 â€” IMPLEMENTATION
+STEP 4 — IMPLEMENTATION
 
 Provide complete working code.
 
@@ -1585,7 +1585,7 @@ Do not provide incomplete placeholders such as:
 
 If something genuinely requires a future phase, define the interface and document the dependency.
 
-STEP 5 â€” TESTING
+STEP 5 — TESTING
 
 Provide:
 
@@ -1595,7 +1595,7 @@ Provide:
 * Expected results.
 * Edge cases.
 
-STEP 6 â€” DOCUMENTATION
+STEP 6 — DOCUMENTATION
 
 Update:
 
@@ -1604,7 +1604,7 @@ Update:
 * API documentation.
 * Feature documentation.
 
-STEP 7 â€” VERIFICATION
+STEP 7 — VERIFICATION
 
 Verify:
 
@@ -1616,7 +1616,7 @@ Verify:
 * Data correctness.
 * Security considerations.
 
-STEP 8 â€” COMPLETION REPORT
+STEP 8 — COMPLETION REPORT
 
 Provide:
 
@@ -1629,7 +1629,7 @@ Provide:
 * Known limitations.
 * Next phase.
 
-STEP 9 â€” STOP
+STEP 9 — STOP
 
 After completing one feature, STOP.
 
@@ -1741,7 +1741,7 @@ Before writing implementation code:
 
 Then begin with:
 
-**PHASE 1 â€” PROJECT FOUNDATION**
+**PHASE 1 — PROJECT FOUNDATION**
 
 Implement only the project foundation.
 
